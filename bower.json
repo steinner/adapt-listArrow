@@ -1,0 +1,29 @@
+{
+  "name": "adapt-listArrow",
+  "homepage": "https://github.com/steinner/adapt-listArrow",
+  "authors": [
+    "Tamara Steinner <tscaraujo@cetiqt.senai.br>"
+  ],
+  "description": "Lista com setas",
+  "main": "/js/adapt-listArrow.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/plugins",
+    "test",
+    "tests"
+  ],
+  "assetFields" : "_graphic.bg",
+  "license": "MIT",
+  "private": true,
+  "version": "0.1.1",
+  "framework": ">=5.0",
+  "component": "listArrow",
+  "displayName": "Lista com Setas"
+  
+}

@@ -1,0 +1,163 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties":{
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text",
+      "translatable": true
+    },
+    "_columns": {
+      "type": "number",
+      "required": false,
+      "default": 0,
+      "title": "Columns",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "Set the number of columns. If value is '0', component uses the default layout."
+    },
+    "_animatelistArrow": {
+      "type": "boolean",
+      "required": false,
+      "title": "Animate listArrow",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Animate the listArrow items into view",
+      "translatable": false
+    },
+    "_percentInviewVertical": {
+      "type": "number",
+      "required": false,
+      "default": 70,
+      "isSetting": true,
+      "title": "Percent in view",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "Controls what percentage of the listArrow items height needs to be in the viewport in order for the items to animate"
+    },
+    "_itemHorizontalAlignment": {
+      "type": "string",
+      "required": false,
+      "default": "start",
+      "inputType": {"type":"Select", "options":["start","center","end"]},
+      "title": "Item horizontal alignment",
+      "help": "Controls the horizontal alignment of the listArrow items. This setting will only take affect if the `_columns` property has a value above `0`. Refer to the plugins readme for further info."
+    },
+    "_bulletAlignment": {
+      "type": "string",
+      "required": false,
+      "default": "start",
+      "inputType": {"type":"Select", "options":["start","center","end"]},
+      "title": "Image or bullet alignment",
+      "help": "Controls the vertical alignment of the listArrow item image or bullet alongside the text content. If the `_columns` property has a value above `0` then this properties alignment switches from vertical to horizontal. Refer to the plugins readme for further info."
+    },
+    "_items": {
+      "type": "array",
+      "required": true,
+      "title": "listArrow Items",
+      "help": "Add some listArrow items",
+      "items": {
+        "type": "object",
+        "required": true,
+        "properties": {
+          "title": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Item title",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Title of the listArrow item",
+            "translatable": true
+          },
+          "body": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Item body",
+            "inputType": "TextArea",
+            "validators": [],
+            "help": "Content area of the listArrow item",
+            "translatable": true
+          },
+          "_classes": {
+            "type": "string",
+            "default": "",
+            "isSetting": true,
+            "inputType": "Text",
+            "validators": [],
+            "title": "Classes",
+            "help": "Used to style or manipulate the look and feel of this listArrow item. These are predefined in the theme or added in Project Settings > Custom CSS/Less code."
+          },
+          "_graphic": {
+            "type": "object",
+            "required": false,
+            "title": "listArrow Item Graphic",
+            "properties": {
+              "src": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Asset:image",
+                "validators": [],
+                "help": "Image to be displayed in the listArrow item."
+              },
+              "alt": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "title": "Alternative text",
+                "inputType": "Text",
+                "validators": [],
+                "help": "A description of the image; required when it has meaning that must be conveyed to the learner. For 'decorative' images, leave this blank.",
+                "translatable": true
+              },
+              "attribution": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "inputType": "Text",
+                "validators": [],
+                "help": "Text to be displayed as an attribution for the listArrow item image.",
+                "translatable": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "bodyAfter": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "TextArea",
+      "validators": [],
+      "title": "Body text after listArrow items",
+      "help": "This is the body text that will appear after the listArrow items.",
+      "translatable": true
+    }
+  }
+}

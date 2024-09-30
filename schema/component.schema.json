@@ -1,0 +1,165 @@
+{
+  "$anchor": "listArrow-component",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$merge": {
+    "source": {
+      "$ref": "component"
+    },
+    "with": {
+      "required": [
+        "_items"
+      ],
+      "properties": {
+        "_supportedLayout": {
+          "type": "string",
+          "title": "Supported layout",
+          "default": "both",
+          "_adapt": {
+            "editorOnly": true
+          }
+        },
+        "instruction": {
+          "type": "string",
+          "title": "Instruction",
+          "description": "This is the instruction text",
+          "default": "",
+          "_adapt": {
+            "translatable": true
+          }
+        },
+        "_columns": {
+          "type": "number",
+          "title": "Columns",
+          "description": "Set the number of columns. If value is '0', component uses the default layout.",
+          "default": 0
+        },
+        "_animatelistArrow": {
+          "type": "boolean",
+          "title": "Animate listArrow",
+          "description": "Animate the listArrow items into view",
+          "default": false,
+          "_adapt": {
+            "translatable": false
+          }
+        },
+        "_percentInviewVertical": {
+          "type": "number",
+          "title": "Percent in view",
+          "description": "Controls what percentage of the listArrow items height needs to be in the viewport in order for the items to animate",
+          "default": 70,
+          "_adapt": {
+            "isSetting": true
+          }
+        },
+        "_itemHorizontalAlignment": {
+          "type": "string",
+          "title": "Item horizontal alignment",
+          "description": "Controls the horizontal alignment of the listArrow items. This setting will only take affect if the `_columns` property has a value above `0`. Refer to the plugins readme for further info.",
+          "default": "start",
+          "enum": [
+            "start",
+            "center",
+            "end"
+          ],
+          "_backboneForms": "Select"
+        },
+        "_bulletAlignment": {
+          "type": "string",
+          "title": "Image or bullet alignment",
+          "description": "Controls the vertical alignment of the listArrow item image or bullet alongside the text content. If the `_columns` property has a value above `0` then this properties alignment switches from vertical to horizontal. Refer to the plugins readme for further info.",
+          "default": "start",
+          "enum": [
+            "start",
+            "center",
+            "end"
+          ],
+          "_backboneForms": "Select"
+        },
+        "_items": {
+          "type": "array",
+          "title": "listArrow Items",
+          "description": "Add some listArrow items",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Item title",
+                "description": "Title of the listArrow item",
+                "default": "",
+                "_adapt": {
+                  "translatable": true
+                }
+              },
+              "body": {
+                "type": "string",
+                "title": "Item body",
+                "description": "Content area of the listArrow item",
+                "default": "",
+                "_adapt": {
+                  "translatable": true
+                },
+                "_backboneForms": "TextArea"
+              },
+              "_classes": {
+                "type": "string",
+                "title": "Classes",
+                "description": "Used to style or manipulate the look and feel of this listArrow item. These are predefined in the theme or added in Project Settings > Custom CSS/Less code.",
+                "default": "",
+                "_adapt": {
+                  "isSetting": true
+                }
+              },
+              "_graphic": {
+                "type": "object",
+                "title": "listArrow Item Graphic",
+                "default": {},
+                "properties": {
+                  "src": {
+                    "type": "string",
+                    "isObjectId": true,
+                    "title": "Src",
+                    "description": "Image to be displayed in the listArrow item.",
+                    "_backboneForms": {
+                      "type": "Asset",
+                      "media": "image"
+                    }
+                  },
+                  "alt": {
+                    "type": "string",
+                    "title": "Alternative text",
+                    "description": "A description of the image; required when it has meaning that must be conveyed to the learner. For 'decorative' images, leave this blank.",
+                    "default": "",
+                    "_adapt": {
+                      "translatable": true
+                    }
+                  },
+                  "attribution": {
+                    "type": "string",
+                    "title": "Attribution",
+                    "description": "Text to be displayed as an attribution for the listArrow item image.",
+                    "default": "",
+                    "_adapt": {
+                      "translatable": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "bodyAfter": {
+          "type": "string",
+          "title": "Body text after listArrow items",
+          "description": "This is the body text that will appear after the listArrow items.",
+          "default": "",
+          "_adapt": {
+            "translatable": true
+          },
+          "_backboneForms": "TextArea"
+        }
+      }
+    }
+  }
+}
